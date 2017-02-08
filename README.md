@@ -16,6 +16,26 @@ ManageIQ plugin for the Consumption provider.
 
 See the section on pluggable providers in the [ManageIQ Developer Setup](http://manageiq.org/docs/guides/developer_setup)
 
+
+TEMPORAL CONFIGURATION
+
+1. Be in the directory that contains your `manageiq/` (**not** *in* your `manageiq/`) - so that the two repos are cloned side by side
+1. `git clone git@github.com:miq-consumption/manageiq-providers-consumption`
+1. `cd manageiq-providers-consumption`
+1. `ln -s ../../manageiq spec/`
+1. `cd ../manageiq`
+1. `echo "gem 'manageiq-providers-consumption', :path => File.expand_path('../manageiq-providers-consumption', __dir__)" >> Gemfile.dev.rb`
+1. `bin/update`
+
+Active consumption tab
+
+set in configuration/advanced
+
+:product:
+  :consumption: true
+
+then restart appliance/server
+
 ## License
 
 The gem is available as open source under the terms of the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
