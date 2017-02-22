@@ -19,12 +19,16 @@ See the section on pluggable providers in the [ManageIQ Developer Setup](http://
 
 TEMPORAL CONFIGURATION
 
-1. Be in the directory that contains your `manageiq/` (**not** *in* your `manageiq/`) - so that the two repos are cloned side by side
+1. Be in the directory that contains your `manageiq/`
+1. `mkdir plugins`
+1. `cd plugins`
 1. `git clone git@github.com:miq-consumption/manageiq-providers-consumption`
+1. `git clone git@github.com:miq-consumption/manageiq-ui-classic`
 1. `cd manageiq-providers-consumption`
-1. `ln -s ../../manageiq spec/`
-1. `cd ../manageiq`
-1. `echo "gem 'manageiq-providers-consumption', :path => File.expand_path('../manageiq-providers-consumption', __dir__)" >> Gemfile.dev.rb`
+1. `ln -s ../../ spec/manageiq`
+1. `cd ../../`
+1. `echo "override_gem 'manageiq-ui-classic', :path => File.expand_path('plugins/manageiq-ui-classic', __dir__)" >> Gemfile.dev.rb`
+1. `echo "gem 'manageiq-providers-consumption', :path => File.expand_path('plugins/manageiq-providers-consumption', __dir__)" >> Gemfile.dev.rb`
 1. `bin/update`
 
 Active consumption tab
