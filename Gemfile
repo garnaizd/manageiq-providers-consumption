@@ -10,3 +10,5 @@ gemspec
 
 # Load Gemfile with dependencies from manageiq
 eval_gemfile(File.expand_path("spec/manageiq/Gemfile", __dir__))
+
+gem "money",                    "~> 6.7.0"
